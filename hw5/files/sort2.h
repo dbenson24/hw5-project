@@ -1,6 +1,6 @@
 //
-//  SelectionSort.h
-//  Header File for SelectionSort class
+//  sort2.h
+//  Header File for sort2 class
 //
 
 #ifndef __Sorting__SelectionSort__
@@ -13,10 +13,10 @@ struct arrayWithLength{
 	int *arr;
 };
 
-class SelectionSort {
+class sort2 {
 public:
-	SelectionSort(); // constructor
-	~SelectionSort(); // deconstructor
+	sort2(); // constructor
+	~sort2(); //destructor
 
 	// read in a list of values from stdin
 	void readList();
@@ -29,7 +29,7 @@ public:
 
 private:
 	arrayWithLength sortArray;
-	void swap(int a, int b);
+	void gapinsertionsort(int gap);
 };
 
 #endif /* defined(__Sorting__SelectionSort__) */

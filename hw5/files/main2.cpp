@@ -4,13 +4,13 @@
 //
 
 #include <iostream>
-#include "SelectionSort.h"
+#include "sort2.h"
 
 using namespace std;
 
 int main()
 {
-        SelectionSort sorter;
+        sort2 sorter;
         cout << "array initialized";
         sorter.readList();
         cout << "List read";

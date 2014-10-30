@@ -1,22 +1,23 @@
 //
-//  SelectionSort.cpp
-//  Sorts integers using the SelectionSort algorithm
+//  sort2.cpp
+//  Sorts integers using the sort2 algorithm
 
 
-#include "SelectionSort.h"
+#include "sort2.h"
 
 using namespace std;
 
-SelectionSort::SelectionSort(){ // constructor
+sort2::sort2(){ // constructor
 	sortArray.length = 0;
 	sortArray.arr = NULL;
 }
 
-SelectionSort::~SelectionSort(){
+sort2::~sort2(){ //destructor
 	delete[] sortArray.arr;
 }
+
 // reads in a list of integers from stdin and returns an arrayWithLength
-void SelectionSort::readList(){
+void sort2::readList(){
 	int currentCapacity = 10;
 	sortArray.arr = new int[currentCapacity];
 
@@ -34,28 +35,29 @@ void SelectionSort::readList(){
 	}
 }
 
-void SelectionSort::sort(){
-	// selection sort on sortArray
-	for (int i = 0; i < sortArray.length; i++){
-		int min = i;
-		for (int x = i; x < sortArray.length; x++){
-			if (sortArray.arr[min] > sortArray.arr[x]){
-				min = x;
-			}
-		}
-		swap(min, i);
+void sort2::sort(){
+	// Shell sort on sortArray
+	int gaps[8] = {701,301,132,57,23,10,4,1};
+	for (int i=0; i<8; i++){
+		gapinsertionsort(gaps[i]);
 	}
 }
 
-void SelectionSort::printArray(){
+void sort2::printArray(){
 	// prints out the integers in sorted order
 	for (int i=0; i < sortArray.length; i++)
 		cout << sortArray.arr[i] << "\n";
 }
 
-void SelectionSort::swap(int a, int b){
-	int temp = sortArray.arr[a];
-	a=b;
-	b=temp;
+void sort2::gapinsertionsort(int gap){
+	for (int i = gap; i < sortArray.length; i++){
+		int temp = sortArray.arr[i];
+		int x;
+		for (x = i; x >= gap && sortArray.arr[x-gap] > temp; x-=gap){
+			sortArray.arr[x] = sortArray.arr[x-gap];
+		}
+		sortArray.arr[x] = temp;
+	}
 }
+
 
