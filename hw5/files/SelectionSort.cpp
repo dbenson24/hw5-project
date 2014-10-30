@@ -55,7 +55,7 @@ void SelectionSort::printArray(){
 
 void SelectionSort::swap(int a, int b){
 	int temp = sortArray.arr[a];
-	a=b;
-	b=temp;
+	sortArray.arr[a]=sortArray.arr[b];
+	sortArray.arr[b]=temp;
 }
 
