@@ -1,41 +1,82 @@
 # ReadMe for COMP 15 HW5
 ## Sorting Assignment 
+### Derek Benson
 
-Every assignment you submit you will include a ReadMe file. The name
-could be ReadMe, readme, Read-me.txt, readME, ReadMe.md (the “.md”
-stands for “markdown,” which allows lightweight formatting) or almost
-anything you like that has the word read followed by the word me. Exact
-spelling is not important, the contents are.
+* Grading Note: I did a total of four sorts and modified the make file to
+  compile and provide them.
 
-The purpose of the ReadMe file is the same as the little paper insert
-you get in a new appliance -- to give the reader an introduction and
-overview of the product.
+This program provides four different options for sorting arrays of integers
+with lengths. Selection sort uses a selection sort, sort2 is a shell sort,
+sort3 is a merge sort, and sort4 is a quick sort. 
 
-Your ReadMe file for the assignments **must** include:
+main1.cpp 
+    Provides some basic test code for a selection sort. Reads in data from
+    a txt file and sorts it.
 
-1.  The purpose of your program
+SelectionSort.cpp 
+    Defines the selection sort class. Used to perform a selection sort
+    on an arraywithlength. 
 
-2.  List of files with one/or two-line summary
+SelectionSort.h 
+    This is the header file for the SelectionSort class. It declares
+    all of the methods and variables defined in SelectionSort.cpp.
 
-3.  How to compile it (saying "use included Makefile" is ok)
+main2.cpp 
+    Provides some basic test code for a shell sort. Reads in data from
+    a txt file and sorts it.
 
-4.  Outline of data structure (depending on the assignment)
+sort2.cpp 
+    Defines the sort2 class. Used to perform a shell sort on an
+    arraywithlength.
 
-5.  Outline of algorithm (depending on the assignment)
+sort2.h 
+    This is the header file for the sort2 class. It declares
+    all of the methods and variables defined in sort2.cpp.
 
-6.  A list of people who materially helped you on the assignment. If
-    you worked with a friend and you shared ideas, you need to 
-    list that person, e.g., "Josh Whedon helped me on this assignment".
-    You do not need to list TAs, or professors, but you may feel free
-    to do so.
+main3.cpp 
+    Provides some basic test code for a merge sort. Reads in data from
+    a txt file and sorts it.
 
-The ReadMe file shows the reader, in a quick glance, what the program is
-about and gives a general idea of how it works. For short programs the
-readme file will be short, for more complicated programs the readme file
-will be longer.
+sort3.cpp 
+    Defines the sort3 class. Used to perform a merge sort on an
+    arraywithlength.
 
-Use outline form rather than long discursive paragraphs. A ReadMe file
-is an overview.
+sort3.h
+    This is the header file for the sort3 class. It declares
+    all of the methods and variables defined in sort3.cpp.
 
-There is no correct readme format; within these guidelines, devise your
-own style.
+main4.cpp 
+    Provides some basic test code for a quicksort. Reads in data from
+    a txt file and sorts it.
+
+sort4.cpp 
+    Defines the sort4 class. Used to perform a quicksort on an
+    arraywithlength.
+
+sort4.h
+    This is the header file for the sort4. It declares
+    all of the methods and variables defined in sort4.cpp.
+
+
+		---- Sorting Algorithms ----
+
+
+Selection Sort:
+    Loops through the array placing the smallest item in the remaining
+    portion of the array at the front.
+
+Shell Sort:
+    Sorts the array based on gap intervals that decrease until they
+    equal to 1. It is similar to bubble sorting except with gaps.
+
+Merge Sort:
+    Breaks the array into halves until each piece is only 1 item large.
+    These small arrays are then merged together so that the large array
+    ends up being fully sorted.
+
+Quicksort:
+    First a pivot is chosen, it is the midpoint on the array. Numbers 
+    that are larger than the pivot are moved to the right of the pivot.
+    Numbers that are smaller than the pivot are moved to the left of the
+    pivot. The array on either side of the pivot is then recursively sorted.
+

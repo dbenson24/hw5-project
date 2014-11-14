@@ -15,6 +15,7 @@ SelectionSort::SelectionSort(){ // constructor
 SelectionSort::~SelectionSort(){
 	delete[] sortArray.arr;
 }
+
 // reads in a list of integers from stdin and returns an arrayWithLength
 void SelectionSort::readList(){
 	int currentCapacity = 10;
@@ -34,25 +35,31 @@ void SelectionSort::readList(){
 	}
 }
 
+// selection sort on sortArray
 void SelectionSort::sort(){
-	// selection sort on sortArray
+	// moves through each item on the array
 	for (int i = 0; i < sortArray.length; i++){
 		int min = i;
+		// finds the smallest item still on the array
 		for (int x = i; x < sortArray.length; x++){
 			if (sortArray.arr[min] > sortArray.arr[x]){
 				min = x;
 			}
 		}
+		// moves the smallest item to the first unsorted spot
 		swap(min, i);
 	}
 }
 
+// prints out the integers in sorted order
 void SelectionSort::printArray(){
-	// prints out the integers in sorted order
 	for (int i=0; i < sortArray.length; i++)
 		cout << sortArray.arr[i] << "\n";
 }
 
+// swaps the elements at two given indices
+// int a is the index of the first item
+// int b is the index of the second item
 void SelectionSort::swap(int a, int b){
 	int temp = sortArray.arr[a];
 	sortArray.arr[a]=sortArray.arr[b];

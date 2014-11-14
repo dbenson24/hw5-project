@@ -35,24 +35,31 @@ void sort2::readList(){
 	}
 }
 
+// Shell sort on sortArray
 void sort2::sort(){
-	// Shell sort on sortArray
+	// Martin Ciura's Gap Sequence
 	int gaps[8] = {701,301,132,57,23,10,4,1};
+
 	for (int i=0; i<8; i++){
+		// performs a gap sort with the determined gap
 		gapinsertionsort(gaps[i]);
 	}
 }
 
+// prints out the integers in sorted order
 void sort2::printArray(){
-	// prints out the integers in sorted order
 	for (int i=0; i < sortArray.length; i++)
 		cout << sortArray.arr[i] << "\n";
 }
 
+// performs a gap sort on the array
+// int gap determines the gap size
 void sort2::gapinsertionsort(int gap){
+	// sorts every number separated by the gap using insertion sort
 	for (int i = gap; i < sortArray.length; i++){
 		int temp = sortArray.arr[i];
 		int x;
+		// counts down by the gap
 		for (x = i; x >= gap && sortArray.arr[x-gap] > temp; x-=gap){
 			sortArray.arr[x] = sortArray.arr[x-gap];
 		}

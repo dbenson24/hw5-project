@@ -16,7 +16,7 @@ struct arrayWithLength{
 class SelectionSort {
 public:
 	SelectionSort(); // constructor
-	~SelectionSort(); // deconstructor
+	~SelectionSort(); // destructor
 
 	// read in a list of values from stdin
 	void readList();
@@ -29,6 +29,8 @@ public:
 
 private:
 	arrayWithLength sortArray;
+
+	// swaps values at a and b
 	void swap(int a, int b);
 };
 

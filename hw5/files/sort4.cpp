@@ -34,50 +34,69 @@ void sort4::readList(){
 	}
 }
 
+// quicksort on sortArray
 void sort4::sort(){
-	// quicksort on sortArray
-	quickSort(0, sortArray.length);
+	quickSort(0, sortArray.length-1);
 }
 
+// performs a quickSort on the array between a and b
+// int a is the low index and int b is the high index
 void sort4::quickSort(int a, int b){
+	// makes sure index a is below index b
 	if (a>=b){
 		return;
 	}
-	int left = a+1;
+	int left = a;
 	int right = b;
 	int pivot = findPivot(a, b);
 	int pivotvalue = sortArray.arr[pivot];
-	swap(a, pivot);
-	while (left!=right){
-		if (sortArray.arr[left] < pivotvalue){
+	// moves the left and right indices towards each other
+	// until they meet at the same point.
+	while (left <= right){
+		// moves left to next switchable value
+		while (sortArray.arr[left] < pivotvalue){
 			left++;
 		}
-		if (sortArray.arr[right] > pivotvalue){
+		// moves right to next switchable value
+		while (sortArray.arr[right] > pivotvalue){
 			right--;
 		}
-		if (sortArray.arr[left] > pivotvalue && sortArray.arr[right]){
+		// swap left and right once they reach that value
+		if (left <= right){
 			swap(left, right);
+			left++;
+			right--;
 		}
 	}
-	swap(a, left);
-	quickSort(a, left);
-	quickSort(left+1, b);
+	// recursive calls if there are still numbers
+	// to be sorted
+	if (a < right)
+		quickSort(a, right);
+	if (left < b)
+		quickSort(left, b);
 	return;
 }
 
+// prints out the integers in sorted order
 void sort4::printArray(){
-	// prints out the integers in sorted order
 	for (int i=0; i < sortArray.length; i++)
 		cout << sortArray.arr[i] << "\n";
 }
 
+// swaps the elements at two given indices
+// int a is the index of the first item
+// int b is the index of the second item
 void sort4::swap(int a, int b){
 	int temp = sortArray.arr[a];
 	sortArray.arr[a]=sortArray.arr[b];
 	sortArray.arr[b]=temp;
 }
 
+// finds the pivot, midpoint on the sequence
+// int a is the starting point of the sequence
+// int b is the ending point of the sequence
 int sort4::findPivot(int a, int b){
 	return a + (b - a) / 2;
 }
+
 

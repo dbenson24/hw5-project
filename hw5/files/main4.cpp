@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-        sort3 sorter;
+        sort4 sorter;
         cout << "array initialized";
         sorter.readList();
         cout << "List read";
